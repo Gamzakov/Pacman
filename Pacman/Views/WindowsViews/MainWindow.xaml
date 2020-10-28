@@ -1,0 +1,14 @@
+﻿<Window
+    x:Class="Pacman.Views.WindowsViews.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:windowsViewModels="clr-namespace:Pacman.ViewModels.WindowsViewModels"
+    Title="{Binding Title, Mode=TwoWay}"
+    ResizeMode="NoResize"
+    SizeToContent="WidthAndHeight">
+    <Window.DataContext>
+        <windowsViewModels:MainWindowViewModel />
+    </Window.DataContext>
+
+    <ContentPresenter Content="{Binding Context}" />
+</Window>

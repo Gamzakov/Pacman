@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="Pacman.Views.UserControlsViews.GameView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:userControlsViewModels="clr-namespace:Pacman.ViewModels.UserControlsViewModels"
+    Background="CadetBlue"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded">
+
+    <UserControl.DataContext>
+        <userControlsViewModels:GameViewModel />
+    </UserControl.DataContext>
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                MinWidth="568"
+                FontSize="55"
+                FontWeight="Bold"
+                Text="{Binding ScoreMessage}" />
+            <TextBlock
+                FontSize="55"
+                FontWeight="Bold"
+                Text="{Binding PlayerHealth}"
+                TextAlignment="Right" />
+        </StackPanel>
+        <ContentPresenter
+            Width="1024"
+            Height="768"
+            MinWidth="1024"
+            MinHeight="768"
+            Margin="16" />
+    </StackPanel>
+</UserControl>

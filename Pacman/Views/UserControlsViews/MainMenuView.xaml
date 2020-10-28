@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="Pacman.Views.UserControlsViews.MainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:userControlViews="clr-namespace:Pacman.Views.UserControlsViews"
+    xmlns:userControlsViewModels="clr-namespace:Pacman.ViewModels.UserControlsViewModels"
+    Width="800"
+    Height="450"
+    Background="CadetBlue">
+
+    <UserControl.DataContext>
+        <userControlsViewModels:MainMenuViewModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="5,0,0,0">
+            <TextBlock
+                FontSize="45"
+                FontWeight="Bold"
+                Text="Pacman" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Button
+                Height="25"
+                Margin="0,25,0,25"
+                Padding="0"
+                Command="{Binding DataContext.SwitchViewCommand, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
+                CommandParameter="{x:Type userControlViews:GameView}"
+                Content="New game"
+                FontSize="16">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                Height="25"
+                Margin="0,0,0,25"
+                Padding="0"
+                Command="{Binding DataContext.ExitCommand, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
+                Content="Exit"
+                FontSize="16">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
