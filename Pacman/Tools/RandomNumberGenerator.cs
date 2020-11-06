@@ -10,7 +10,8 @@ namespace Pacman.Tools
             short value = 0;
             using (var rng = new RNGCryptoServiceProvider())
             {
-                byte[] data = new byte[number];
+                byte[] data = new byte[number * 2];
+
                 for (int i = 0; i < 10; i++)
                 {
                     rng.GetBytes(data);
